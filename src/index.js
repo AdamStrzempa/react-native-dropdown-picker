@@ -531,10 +531,11 @@ class DropDownPicker extends React.Component {
                     styles.dropDownBox,
                     this.props.dropDownStyle,
                     ! this.state.isVisible && styles.hidden, {
-                        top: this.state.top,
+                        top: Platform.OS !== 'android' && this.state.top,
                         maxHeight: this.props.dropDownMaxHeight,
                         zIndex: this.props.zIndex
-                    }
+                    },
+                    Platform.OS !== 'android' && { position: 'relative' }
                 ]}>
                     {
                       this.props.searchable && (
