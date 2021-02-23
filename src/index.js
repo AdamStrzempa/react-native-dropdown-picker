@@ -534,6 +534,10 @@ class DropDownPicker extends React.Component {
                         ...(Platform.OS !== 'android' && {
                             top: this.state.top
                         }),
+                        ...(Platform.OS === 'android' && {
+                            borderWidth: 0,
+                            borderTopWidth: 1
+                        }),
                         maxHeight: this.props.dropDownMaxHeight,
                         zIndex: this.props.zIndex
                     },
